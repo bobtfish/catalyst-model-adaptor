@@ -12,7 +12,7 @@ sub _load_adapted_class {
 
     croak 'need class' unless $self->{class};
     my $adapted_class = $self->{class};
-    eval "require $adapted_class" or die "failed to require $adapted_class: $@";
+    Catalyst::Utils::ensure_class_loaded($adapted_class);
 
     return $adapted_class;
 }
