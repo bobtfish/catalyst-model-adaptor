@@ -14,7 +14,7 @@ BEGIN {
     plan skip_all => 'this test needs Moose'
       unless eval "require Moose";
 
-    plan tests => 47;
+    plan tests => 49;
 }
 
 # make sure testapp works
@@ -135,3 +135,9 @@ $mech->content_like(qr/it works/i, 'see if it has our text');
     is $b, 2, '2 count for b';
 }
 
+# inner package
+{
+    $mech->get_ok('http://localhost/innerpackage/isa', 'get the class name');
+    $mech->content_like(qr/^TestApp::Backend::InnerPackage::Inner$/,
+                        'got the right package for inner class');
+}
