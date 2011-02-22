@@ -3,8 +3,10 @@ use strict;
 use warnings;
 
 use base 'Catalyst::Model::Adaptor::Base';
+use Catalyst::Utils ();
+use Scalar::Util 'blessed';
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 sub COMPONENT {
     my ($class, @args) = @_;
@@ -15,8 +17,21 @@ sub COMPONENT {
 }
 
 sub ACCEPT_CONTEXT {
-    my ($self, $context) = @_;
-    return $self->_create_instance($context);
+    my ($self, $context, @args) = @_;
+    my $arg = {};
+    if ( scalar @args ) {
+        if ( ref($args[0]) eq 'HASH' ) {
+            $arg = $args[0];
+        }
+        else {
+            $arg = { @args };
+        }
+    }
+    my $suffix = Catalyst::Utils::class2classsuffix(blessed $self);
+    return $self->_create_instance(
+        $context,
+        $self->merge_config_hashes($context->config->{$suffix}, $arg),
+    );
 }
 
 1;

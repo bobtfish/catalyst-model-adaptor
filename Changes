@@ -1,5 +1,8 @@
 Change history for Catalyst::Model::Adaptor
 
+0.10
+       - Allow callers pass some args at instance time
+
 0.09  4 August 2010
        - Use Catalyst::Utils::ensure_class_loaded on the adapted class,
          instead of eval/require, so that inner classes in already-loaded

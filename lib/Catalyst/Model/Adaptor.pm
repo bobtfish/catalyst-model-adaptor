@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use base 'Catalyst::Model::Adaptor::Base';
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 sub COMPONENT {
     my ($class, $app, @rest) = @_;
@@ -146,6 +146,15 @@ this:
 Since a static hashref of arguments may not be what C<$class> needs,
 you can override the following methods to change what C<$args> is.
 
+NOTE: If you need to pass some args at instance time, you can do something
+like:
+
+    my $model = $c->model('MyFoo', { foo => 'myfoo' });
+
+or
+
+    my $model = $c->model('MyFoo', foo => 'myfoo');
+
 =head2 prepare_arguments
 
 This method is passed the entire configuration for the class and the
@@ -193,6 +202,10 @@ instead.
 =head1 AUTHOR
 
 Jonathan Rockway C<< <jrockway@cpan.org> >>
+
+=head1 CONTRIBUTORS
+
+Wallace Reis C<< <wreis@cpan.org> >>
 
 =head1 LICENSE
 

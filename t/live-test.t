@@ -81,7 +81,7 @@ $mech->content_like(qr/it works/i, 'see if it has our text');
 
 {
     $mech->get_ok('http://localhost/factory/foo', 'get foo');
-    $mech->content_like(qr/^baz$/, 'got foo = baz');
+    $mech->content_like(qr/^factory$/, 'got foo = factory');
 }
 {
     $mech->get_ok('http://localhost/factory/count', 'get count');
@@ -117,7 +117,7 @@ $mech->content_like(qr/it works/i, 'see if it has our text');
 
 {
     $mech->get_ok('http://localhost/perrequest/foo', 'get foo');
-    $mech->content_like(qr/^quux$/, 'got foo = quux');
+    $mech->content_like(qr/^perrequest$/, 'got foo = perrequest');
 }
 {
     $mech->get_ok('http://localhost/perrequest/count', 'get count');
