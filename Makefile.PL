@@ -14,6 +14,6 @@ build_requires 'ok';
 
 author_tests('t/author');
 
-repository 'http://github.com/jrockway/catalyst-model-adaptor';
+repository 'git://github.com/bobtfish/catalyst-model-adaptor.git';
 
 WriteAll();
