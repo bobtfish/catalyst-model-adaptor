@@ -1,6 +1,7 @@
 package Catalyst::Model::Factory::PerRequest;
 use strict;
 use warnings;
+use MRO::Compat;
 
 use base 'Catalyst::Model::Factory';
 

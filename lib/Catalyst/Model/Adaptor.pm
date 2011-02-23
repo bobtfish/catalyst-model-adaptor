@@ -1,6 +1,8 @@
 package Catalyst::Model::Adaptor;
 use strict;
 use warnings;
+use MRO::Compat;
+
 use base 'Catalyst::Model::Adaptor::Base';
 
 our $VERSION = '0.10';

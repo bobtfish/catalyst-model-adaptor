@@ -1,6 +1,7 @@
 package Catalyst::Model::Factory;
 use strict;
 use warnings;
+use MRO::Compat;
 
 use base 'Catalyst::Model::Adaptor::Base';
 use Catalyst::Utils ();
