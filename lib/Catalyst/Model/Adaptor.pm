@@ -7,10 +7,21 @@ our $VERSION = '0.10';
 
 sub COMPONENT {
     my ($class, $app, @rest) = @_;
-    my $self = $class->next::method($app, @rest);
+    my $arg = {};
+    if ( scalar @rest ) {
+        if ( ref($rest[0]) eq 'HASH' ) {
+            $arg = $rest[0];
+        }
+        else {
+            $arg = { @rest };
+        }
+    }
+    my $self = $class->next::method($app, $arg);
 
     $self->_load_adapted_class;
-    return $self->_create_instance($app);
+    return $self->_create_instance(
+        $app, $class->merge_config_hashes($class->config || {}, $arg)
+    );
 }
 
 1;

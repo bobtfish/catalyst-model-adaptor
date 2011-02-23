@@ -116,6 +116,15 @@ CUSTOMIZING THE PROCESS
     Since a static hashref of arguments may not be what $class needs, you
     can override the following methods to change what $args is.
 
+    NOTE: If you need to pass some args at instance time, you can do
+    something like:
+
+        my $model = $c->model('MyFoo', { foo => 'myfoo' });
+
+    or
+
+        my $model = $c->model('MyFoo', foo => 'myfoo');
+
   prepare_arguments
     This method is passed the entire configuration for the class and the
     Catalyst application, and returns the hashref of arguments to be passed

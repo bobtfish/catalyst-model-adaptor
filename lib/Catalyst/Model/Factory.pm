@@ -30,7 +30,7 @@ sub ACCEPT_CONTEXT {
     my $suffix = Catalyst::Utils::class2classsuffix(blessed $self);
     return $self->_create_instance(
         $context,
-        $self->merge_config_hashes($context->config->{$suffix}, $arg),
+        $self->merge_config_hashes($context->config->{$suffix} || {}, $arg),
     );
 }
 

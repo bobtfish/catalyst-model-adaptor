@@ -18,22 +18,21 @@ sub _load_adapted_class {
 }
 
 sub _create_instance {
-    my ($self, $app, @args) = @_;
+    my ($self, $app, $rest) = @_;
 
     my $constructor = $self->{constructor} || 'new';
-    my $arg = $self->prepare_arguments($app, @args);
+    my $arg = $self->prepare_arguments($app, $rest);
     my $adapted_class = $self->{class};
 
     return $adapted_class->$constructor($self->mangle_arguments($arg));
 }
 
 sub prepare_arguments {
-    my ($self, $app, $args) = @_;
-    $args ||= {};
+    my ($self, $app, $arg) = @_;
     return exists $self->{args} ? {
         %{$self->{args}},
-        %$args,
-    } : $args;
+        %$arg,
+    } : $arg;
 }
 
 sub mangle_arguments {
