@@ -1,6 +1,6 @@
 Change history for Catalyst::Model::Adaptor
 
-0.10
+0.10 23 Febuary 2011
        - Allow callers pass some args at instance time
 
 0.09  4 August 2010
