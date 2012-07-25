@@ -22,9 +22,17 @@ sub _create_instance {
 
     my $constructor = $self->{constructor} || 'new';
     my $arg = $self->prepare_arguments($app, $rest);
+    $self->_handle_catalystmodel_args($arg);
     my $adapted_class = $self->{class};
 
     return $adapted_class->$constructor($self->mangle_arguments($arg));
+}
+
+sub _handle_catalystmodel_args {
+    my ($self, $arg) = @_;
+    my $keep_flag = $arg->{keep_catalystmodel_args}||0;
+    delete $arg->{keep_catalystmodel_args} ;
+    delete @{$arg}{'catalyst_component_name','class','args'} unless $keep_flag;
 }
 
 sub prepare_arguments {
@@ -61,6 +69,11 @@ Load the adapted class
 =head2 _create_instance
 
 Instantiate the adapted class
+
+=head2 _handle_catalystmodel_args
+
+Remove arguments which are default in Catalyst::Model but break things if our class
+uses MooseX::StrictConstructor
 
 =head2 prepare_arguments
 
