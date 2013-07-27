@@ -173,7 +173,7 @@ or
 This method is passed the entire configuration for the class and the
 Catalyst application, and returns the hashref of arguments to be
 passed to the constructor.  If you need to get dynamic data out of
-your application to pass to the consturctor, do it here.
+your application to pass to the constructor, do it here.
 
 By default, this method returns the C<args> configuration key.
 
@@ -188,7 +188,7 @@ Example:
 
 This method is passed the hashref from C<prepare_arguments>, mangles
 them into a form that your constructor will like, and returns the
-mangled form.  If your constuctor wants a list instead of a hashref,
+mangled form.  If your constructor wants a list instead of a hashref,
 this is your opportunity to do the conversion.
 
 Example:

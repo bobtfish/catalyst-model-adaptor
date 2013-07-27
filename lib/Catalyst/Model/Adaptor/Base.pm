@@ -64,11 +64,11 @@ Instantiate the adapted class
 
 =head2 prepare_arguments
 
-Prepare the arguements
+Prepare the arguments
 
 =head2 mangle_arguments
 
-Make the arguements amenable to the adapted class
+Make the arguments amenable to the adapted class
 
 =head1 SEE ALSO
 

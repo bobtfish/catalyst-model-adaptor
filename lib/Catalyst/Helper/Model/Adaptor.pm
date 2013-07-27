@@ -32,7 +32,7 @@ Why you need a script to generate that is beyond me, but here it is.
 
    ./script/myapp_create.pl model <model_name> Adaptor <class> [<constructor>]
 
-You need to sepecify the C<model_name> (the name of the model), and
+You need to specify the C<model_name> (the name of the model), and
 C<class>, the class being adapted.  If C<< $class->new >> isn't going
 to do what you want, pass the name of C<$class>'s constructor as
 C<constructor>.
