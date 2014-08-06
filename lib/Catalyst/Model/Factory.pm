@@ -56,6 +56,17 @@ You can customize your subclass just like
 L<Catalyst::Model::Adaptor|Catalyst::Model::Adaptor>.  Instead of
 C<$app>, though, you'll get C<$c>, the current request context.
 
+NOTE: If you need to pass some args at instance time, and merge with default args, you can do something like:
+
+    sub prepare_arguments {
+        my ($self, $app, $args) = @_; # $app sometimes written as $c, $args are provided from $c->model('MyFoo', { foo => 'myfoo', bar => 'mybar' })
+        
+        # define some default arg
+        $args->{baz} = 'mybaz' if(!$args->{baz});
+        
+        return $args;
+    }
+
 =head1 METHODS
 
 These methods are called by Catalyst, not by you:
