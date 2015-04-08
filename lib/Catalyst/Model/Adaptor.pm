@@ -1,4 +1,5 @@
 package Catalyst::Model::Adaptor;
+use 5.006;
 use strict;
 use warnings;
 use MRO::Compat;
