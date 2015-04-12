@@ -37,7 +37,7 @@ sub prepare_arguments {
 
 sub mangle_arguments {
     my ($self, $args) = @_;
-    return $args;
+    return %$args;
 }
 
 1;
